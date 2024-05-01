@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import './Navbar.css'
-import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
-const Navbar = () => {
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import './Navbar.css';
+import logo from '../Assets/logo.png';
+import cart_icon from '../Assets/cart_icon.png';
 
-  const [menu,setMenu] = useState("Shop");
+const Navbar = () => {
+  const [menu, setMenu] = useState("Shop");
 
   return (
     <div className='navbar'>
@@ -12,19 +13,19 @@ const Navbar = () => {
         <img src={logo} alt='logo' />
         <p>Kuromi Srore</p>
       </div>
-        <ul className='nav-menu'>
-          <li onClick={() => {setMenu("shop")}}>Shop{menu==="shop"?<hr/>:<></>}</li>
-          <li onClick={() => {setMenu("mens")}}>Men{menu==="mens"?<hr/>:<></>}</li>
-          <li onClick={() => {setMenu("womans")}}>Woman{menu==="womans"?<hr/>:<></>}</li>
-          <li onClick={() => {setMenu("kids")}}>Kid{menu==="kids"?<hr/>:<></>}</li>
-        </ul>
-        <div className='nav-login-cart'>
-          <button>Login</button>
-          <img src={cart_icon} alt="" />
-          <div className="nav-cart-count">0</div>
-        </div>
+      <ul className='nav-menu'>
+        <li onClick={() => { setMenu("shop") }}><Link style={{ textDecoration: 'none'}} to='/'>Shop</Link>{menu === "shop" ? <hr /> : <></>}</li>
+        <li onClick={() => { setMenu("mens") }}><Link style={{ textDecoration: 'none'}} to='/mens'>Men</Link>{menu === "mens" ? <hr /> : <></>}</li>
+        <li onClick={() => { setMenu("womans") }}><Link style={{ textDecoration: 'none'}} to='/womans'>Woman</Link>{menu === "womans" ? <hr /> : <></>}</li>
+        <li onClick={() => { setMenu("kids") }}><Link style={{ textDecoration: 'none'}} to='/kids'>Kids</Link>{menu === "kids" ? <hr /> : <></>}</li>
+      </ul>
+      <div className='nav-login-cart'>
+        <Link to='/login'><button>Login</button></Link>
+        <Link to='/cart'><img src={cart_icon} alt="" /></Link>
+        <div className="nav-cart-count">0</div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;
