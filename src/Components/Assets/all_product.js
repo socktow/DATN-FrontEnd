@@ -56,9 +56,9 @@ let all_product = [
     id: 3,
     name: "3",
     category: "women",
-    image: p3_img,
+    image: p3_img,  
     new_price: 99000,
-    old_price: 25000,
+    old_price: '',
   },
   {
     id: 4,
