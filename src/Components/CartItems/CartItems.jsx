@@ -29,9 +29,9 @@ const CartItems = () => {
                   className="carticon-product-icon"
                 />
                 <p>{product.name}</p>
-                <p>$ {product.new_price}</p>
+                <p>{product.new_price.toLocaleString("en-US")} VND</p>
                 <button className="cartitems-quantity">{quantity}</button>
-                <p>$ {product.new_price * quantity}</p>
+                <p>{(product.new_price * quantity).toLocaleString("en-US")} VND</p>
                 <img
                   className="cartitems-remove-icon"
                   src={remove_icon}
@@ -52,7 +52,7 @@ const CartItems = () => {
           <div>
             <div className="cartitems-total-item">
               <p>Subtotal</p>
-              <p>${getTotalCartAmount()}</p>
+              <p>{getTotalCartAmount().toLocaleString("en-US")} VND</p>
             </div>
             <hr />
             <div className="cartitems-total-item">
@@ -62,7 +62,7 @@ const CartItems = () => {
             <hr />
             <div className="cartitems-total-item">
               <p>Total</p>
-              <p>${getTotalCartAmount()}</p>
+              <p>{getTotalCartAmount().toLocaleString("en-US")} VND</p>
             </div>
           </div>
           <button className="cartitems-checkout-button">Checkout</button>
